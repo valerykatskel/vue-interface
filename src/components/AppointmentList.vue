@@ -6,7 +6,10 @@
 				v-for="(item, i) in appointments"
 				:key="i"
 			>
-				<button class="mr-2 btn btn-sm btn-danger">
+				<button
+					class="mr-2 btn btn-sm btn-danger"
+					@click="$emit('remove', item)"
+				>
 					<font-awesome-icon icon="trash" />
 				</button>
 				<div class="w-100">
@@ -35,7 +38,7 @@
 			FontAwesomeIcon,
 		},
 		methods: {
-			formattedDate: function(date) {
+			formattedDate(date) {
 				return moment(new Date(date)).format('H:mm, DD.MM.YYYY');
 			},
 		},
