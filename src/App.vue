@@ -17,15 +17,20 @@
 			return {
 				title: 'Appointment list',
 				appointments: [],
+				aptIndex: 0,
 			};
 		},
 		components: {
 			AppointmentList,
 		},
 		mounted() {
-			axios
-				.get('./data/appointments.json')
-				.then(resp => (this.appointments = resp.data));
+			axios.get('./data/appointments.json').then(
+				resp =>
+					(this.appointments = resp.data.map(item => {
+						item.aptId = this.aptIndex++;
+						return item;
+					}))
+			);
 		},
 		methods: {
 			removeItem(apt) {
