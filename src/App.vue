@@ -1,11 +1,17 @@
 <template>
-  <div id="app">
+  <div id="main-app">
+    <h4>{{ title }}</h4>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'MAinApp',
+  data() {
+    return {
+      title: 'Appointment list'
+    }
+  }
 }
 </script>
 
