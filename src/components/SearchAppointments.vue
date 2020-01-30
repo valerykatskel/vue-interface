@@ -7,6 +7,7 @@
         type="text"
         class="form-control"
         aria-label="Search Appointments"
+				v-model="searchTerm"
       >
 
       <div class="input-group-append">
@@ -28,7 +29,7 @@
             id="petName"
           >
             Pet Name
-            <font-awesome-icon icon="check" v-if="myKey==='petName'"/>
+            <font-awesome-icon icon="check"/>
           </a>
 
           <a
@@ -37,7 +38,7 @@
             id="aptDate"
           >
             Date
-            <font-awesome-icon icon="check" v-if="myKey==='aptDate'"/>
+            <font-awesome-icon icon="check"/>
           </a>
 
           <a
@@ -46,7 +47,7 @@
             id="ownerName"
           >
             Owner
-            <font-awesome-icon icon="check" v-if="myKey==='petOwner'"/>
+            <font-awesome-icon icon="check"/>
           </a>
 
           <div class="dropdown-divider" role="separator"></div>
@@ -57,7 +58,7 @@
             id="asc"
           >
             Asc
-            <font-awesome-icon icon="check" v-if="myDir==='asc'"/>
+            <font-awesome-icon icon="check"/>
           </a>
 
           <a
@@ -66,7 +67,7 @@
             id="desc"
           >
             Desc
-            <font-awesome-icon icon="check" v-if="myDir==='desc'"/>
+            <font-awesome-icon icon="check"/>
           </a>
         </div>
       </div>
@@ -81,7 +82,12 @@ export default {
     return {
 			searchTerm: "",
 		};
-  },
+	},
+	watch: {
+		searchTerm: function(){
+			this.$emit("searchRecords", this.searchTerm)
+		},
+	},
   components: {
     FontAwesomeIcon
   }
