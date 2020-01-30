@@ -1,11 +1,11 @@
 <template>
   <div class="col-12">
     <div class="card textcenter mt-3">
-      <div class="card-header bg-primary text-white">
+      <div class="card-header bg-primary text-white" @click="hidepanel = !hidepanel">
         <font-awesome-icon icon="plus" class="mr-3"/>Add Appointment
       </div>
 
-      <div class="card-body">
+      <div class="card-body" :class="{ 'd-none': hidepanel }">
         <form id="aptForm" @submit.prevent="requestAdd">
           <div class="form-group form-row">
             <label class="col-md-2 col-form-label text-md-right" for="petName">Pet Name</label>
@@ -78,7 +78,7 @@ export default {
 	name: "AddAppointment",
 	data() {
 		return {
-
+			hidepanel: true,
 		}
 	},
 	components: {
