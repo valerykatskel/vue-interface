@@ -86,3 +86,8 @@ export default {
 	}
 }
 </script>
+<style scoped>
+.card-header{
+	cursor: pointer;
+}
+</style>
