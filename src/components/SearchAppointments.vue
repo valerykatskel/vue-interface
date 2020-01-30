@@ -84,7 +84,7 @@ export default {
 		};
 	},
 	watch: {
-		searchTerm: function(){
+		searchTerm(){
 			this.$emit("searchRecords", this.searchTerm)
 		},
 	},

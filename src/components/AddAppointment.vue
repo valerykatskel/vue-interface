@@ -90,7 +90,7 @@ export default {
 		FontAwesomeIcon
 	},
 	methods: {
-		requestAdd: function() {
+		requestAdd() {
 			this.formData = {
 				petName: this.formData.petName,
 				petOwner: this.formData.petOwner,
